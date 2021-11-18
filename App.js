@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
+
+import 'react-native-gesture-handler'; 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import type {Node} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import DrawerNavigation from './App/Navigation/Drawer/Drawer';
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider } from '@ui-kitten/components';
 
-export default function App() {
+
+export default () => {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    <ApplicationProvider {...eva} theme={eva.light}>
+      <NavigationContainer>
+        <DrawerNavigation/>
+      </NavigationContainer> 
+    </ApplicationProvider>
+  ); 
+};
